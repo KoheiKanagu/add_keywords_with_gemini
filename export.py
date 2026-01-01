@@ -14,7 +14,7 @@ def main():
         print("No selected photos found.")
         return
 
-    now = datetime.datetime.now().strftime("%Y%m_%H%M%S")
+    now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     now_dir = pathlib.Path("photos") / now
     now_dir.mkdir(exist_ok=True)
 
