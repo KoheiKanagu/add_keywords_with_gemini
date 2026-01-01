@@ -49,8 +49,13 @@ def main():
                     continue
 
     for uuid_key, keywords in tqdm.tqdm(keywords_dict.items()):
-        photo = photoscript.Photo(uuid=uuid_key)
-        photo.keywords = photo.keywords + keywords
+        try:
+            photo = photoscript.Photo(uuid=uuid_key)
+        except ValueError:
+            print(f"Photo with UUID {uuid_key} not found. Skipping.")
+            continue
+
+        photo.keywords = keywords
 
 
 if __name__ == "__main__":
